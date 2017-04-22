@@ -1,6 +1,7 @@
 class LessonsController < ApplicationController
 
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
+  before_action :check_access, only: [:index, :show, :edit, :update, :destroy]
 
   # GET /lessons
   # GET /lessons.json
@@ -66,6 +67,10 @@ class LessonsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_lesson
       @lesson = Lesson.find(params[:id])
+    end
+
+    def check_access
+      redirect_to '/sign_in' unless current_user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

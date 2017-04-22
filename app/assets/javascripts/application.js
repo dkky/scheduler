@@ -20,8 +20,12 @@
 
 $(document).on('turbolinks:load', function() {
   $('#calendar').fullCalendar({
+    buttonText: {
+      listWeek: 'list - week',
+      listDay: 'list - day',
+    },
     header: {
-        center: 'agenda7Day,month' // buttons for switching between views
+        center: 'agenda7Day,month,listWeek,listDay' // buttons for switching between views
     },
     views: {
         agenda7Day: {
@@ -40,7 +44,7 @@ $(document).on('turbolinks:load', function() {
     },
     eventDrop: function(event, delta, revertFunc) {
 
-        alert(event.name + " was dropped on " + event.start.format());
+        alert("You're changing your lesson: " + event.name + " to " + event.start.format());
 
         if (!confirm("Are you sure about this change?")) {
             revertFunc();
