@@ -35,6 +35,9 @@ gem "clearance"
 
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'bootstrap-sass'
+gem 'bootstrap_form'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
