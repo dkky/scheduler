@@ -33,6 +33,9 @@
                 <ul class="nav navbar-nav">
                   <% if signed_in? -%>
                     <li>
+                        <%= link_to "Create Lessons", new_lesson_path %>
+                    </li>
+                    <li>
                         <%= link_to t(".sign_out"), sign_out_path, method: :delete %>
                     </li>
                   <% else %>
@@ -41,9 +44,6 @@
                     </li>
                   <% end %>
 
-                    <li>
-                        <%= link_to "Create Lessons", new_lesson_path %>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
