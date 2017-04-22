@@ -26,7 +26,7 @@ $(document).on('turbolinks:load', function() {
       listDay: 'list - day',
     },
     header: {
-        center: 'agenda7Day,month,listWeek,listDay' // buttons for switching between views
+        center: 'agendaWeek,month,listWeek,listDay, listView' // buttons for switching between views
     },
     views: {
         agenda7Day: {
@@ -39,9 +39,11 @@ $(document).on('turbolinks:load', function() {
     events: '/lessons.json',
     editable: true, 
     droppable: true,
+    defaultView: 'listWeek',
     eventRender: function(event, element) { 
       element.find(".fc-time").remove();
       element.find('.fc-title').append("<br/>" + moment(event.start).format("HH:mm")  + '-' + moment(event.end).format("HH:mm") + "<br/>" + event.name + "<br/>" + event.description); 
+      element.find('.fc-list-item-title').append(event.name + "<br/>" + event.description); 
     },
     eventDrop: function(event, delta, revertFunc) {
 
@@ -59,3 +61,4 @@ $(document).on('turbolinks:load', function() {
     }
   });
 });
+
