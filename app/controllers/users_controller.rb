@@ -2,7 +2,6 @@ class UsersController < Clearance::UsersController
 
   def create
     @user = user_from_params
-    byebug
 
     respond_to do |format|
         if @user.save
