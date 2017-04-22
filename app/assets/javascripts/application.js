@@ -14,12 +14,22 @@
 //= require jquery_ujs
 //= require moment
 //= require fullcalendar
-//= require turbolinks
+// = require turbolinks
 //= require_tree .
 
 
 $(document).on('turbolinks:load', function() {
   $('#calendar').fullCalendar({
+    header: {
+        center: 'agenda7Day,month' // buttons for switching between views
+    },
+    views: {
+        agenda7Day: {
+            type: 'agenda',
+            duration: { days: 7 },
+            buttonText: '7 days'
+        }
+    },
     eventColor: '#669999',
     events: '/lessons.json',
     editable: true, 
@@ -30,7 +40,7 @@ $(document).on('turbolinks:load', function() {
     },
     eventDrop: function(event, delta, revertFunc) {
 
-        alert(event.title + " was dropped on " + event.start.format());
+        alert(event.name + " was dropped on " + event.start.format());
 
         if (!confirm("Are you sure about this change?")) {
             revertFunc();
